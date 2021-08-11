@@ -1,5 +1,5 @@
 @component('mail::message')
-Email de Notificação para o Usuario - Não responder.
+Email de Notificação - Não responder.
 
 Seu perfil foi excluido, Obrigado por nosso tempo juntos!
 

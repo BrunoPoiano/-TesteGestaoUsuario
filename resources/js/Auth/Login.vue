@@ -82,13 +82,12 @@ export default {
                 .then((resp) => {
                     if (resp.status == 200) {
                         store.commit("userLogin");
-                        userStatus.value = store.getters.userStatus;
                         store.commit("updateUserStatusLocalStorage");
+                        userStatus.value = store.getters.userStatus;
                         console.log("userStatos login ", userStatus.value);
                         console.log(resp.data);
                         router.push({ path: "/Tarefa" });
-                    } else {
-                    }
+                    } 
                 })
                 .catch((err) => {
                     LoginMensagem.value =

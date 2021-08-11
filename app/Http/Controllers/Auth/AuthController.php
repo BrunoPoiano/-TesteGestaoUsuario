@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserRequest;
 use App\Mail\User\CriacaoPerfil;
+use App\Mail\User\DeletarPerfil;
 use App\Mail\User\UpdatePerfil;
+use App\Models\Tarefa\Tarefa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,7 +55,6 @@ class AuthController extends Controller
         return response(['message' => 'Usuario não existe'], 404);
     }
 
-
     public function customSignup(UserRequest $request)
     {
         //Salvando novo Usuario
@@ -81,7 +82,38 @@ class AuthController extends Controller
                 'message' => 'User Logout',
             ])->withCookie($cookie);
         }
-        return view('auth.welcome');
+        return response(['message' => 'Erro'], 404);
+
+    }
+
+    public function destroy()
+    {
+        if (Auth::check()) {
+
+            $user = User::find(Auth::id());
+            if ($user) {
+
+                //Apagando Tarefas do  Usuario
+                $userTarefas = Tarefa::where('user_id', Auth::id())->get();
+
+                for ($i = 0; $i < count($userTarefas); $i++) {
+                    $userTarefas[$i]->delete();
+                }
+
+                $cookie = cookie::forget('jwt');
+                Session::flush();
+                Auth::logout();
+                //Enviando email de confirmação de Atualização de Nome
+                Mail::to($user->email)->send(new DeletarPerfil());
+                $user->delete();
+                return response([
+                    'message' => 'User Deletado',
+                ])->withCookie($cookie);
+            }
+            return response(['message' => 'Erro ao procurar usuario'], 404);
+
+        }
+        return response(['message' => 'Erro'], 404);
 
     }
 
@@ -112,16 +144,18 @@ class AuthController extends Controller
 
     public function updateEmail(Request $request)
     {
-
         if ($request) {
             $request->validate([
                 'email' => 'required',
             ]);
+
             $updUserEmail = User::find(Auth::id());
             $updUserEmail->email = $request->email;
+            
             if ($updUserEmail->update()) {
                 //Enviando email de confirmação de Atualização de email
                 Mail::to($updUserEmail->email)->send(new UpdatePerfil());
+                
                 return response([
                     'message' => 'Email Atualizado com sucesso',
                 ]);

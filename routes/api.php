@@ -34,6 +34,7 @@ Route::post('createSignin', [AuthController::class, 'createSignin'])->name('crea
 //Criar usuario
 Route::post('customSignup', [AuthController::class, 'customSignup'])->name('customSignup');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('destroy', [AuthController::class, 'destroy'])->name('destroy');
 Route::put('updateName', [AuthController::class, 'updateName'])->name('updateName');
 Route::put('updateEmail', [AuthController::class, 'updateEmail'])->name('updateEmail');
 Route::put('updatePassword', [AuthController::class, 'updatePassword'])->name('updatePassword');

@@ -19,6 +19,11 @@
                 <div class="card-body m-2 ">
                     <user-password :userPassword="user" />
                 </div>
+
+                
+                <div class="card-body m-2 ">
+                    <user-delete />
+                </div>
             </div>
         </div>
     </div>
@@ -39,8 +44,9 @@ import NavContent from "../../components/NavContent.vue";
 
 import store from "../../Store/Index";
 import NavAuth from "../../components/NavAuth.vue";
+import UserDelete from './UserDelete.vue';
 export default {
-    components: { UserName, UserEmail, UserPassword, NavContent, NavAuth },
+    components: { UserName, UserEmail, UserPassword, NavContent, NavAuth, UserDelete },
     setup() {
         const user = ref({});
         const userStatus = ref();
