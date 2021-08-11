@@ -1,0 +1,8 @@
+@component('mail::message')
+Email de Notificação para o Usuario - Não responder.
+
+Seu perfil foi excluido, Obrigado por nosso tempo juntos!
+
+Atenciosamente.<br>
+{{ config('app.name') }}
+@endcomponent
