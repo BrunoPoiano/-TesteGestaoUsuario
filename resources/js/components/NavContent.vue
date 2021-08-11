@@ -2,9 +2,9 @@
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <div class="container-fluid">
             <div class="navbar-nav float-right">
-                <router-link class="nav-link" to="/Tarefa">Content</router-link>
-                <router-link class="nav-link" to="/UserCrud"
-                    >UserCrud</router-link
+                <router-link class="nav-link" to="/Tarefa">Tarefas</router-link>
+                <router-link class="nav-link" to="/Perfil"
+                    >Perfil</router-link
                 >
             </div>
 

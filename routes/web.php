@@ -8,7 +8,7 @@ Route::get('/', [AuthController::class, 'index'])->name('login');
 route::get('/Tarefa', function(){
     return view('auth.welcome');
 });
-route::get('/UserCrud', function(){
+route::get('/Perfil', function(){
     return view('auth.welcome');
 });
 route::get('/Signup', function(){

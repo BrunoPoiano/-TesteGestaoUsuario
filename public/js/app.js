@@ -19959,9 +19959,9 @@ var _hoisted_3 = {
   "class": "navbar-nav float-right"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Content");
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tarefas");
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("UserCrud");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Perfil");
 
 var _hoisted_6 = {
   "class": "navbar-nav float-left"
@@ -19981,7 +19981,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "nav-link",
-    to: "/UserCrud"
+    to: "/Perfil"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_5];
@@ -20031,8 +20031,8 @@ var routes = [//Navegacao
   name: "Tarefas",
   component: _Pages_Tarefas_Tarefas_vue__WEBPACK_IMPORTED_MODULE_0__.default
 }, {
-  path: "/UserCrud",
-  name: "UserCrud",
+  path: "/Perfil",
+  name: "Perfil",
   component: _Pages_User_UserCrud_vue__WEBPACK_IMPORTED_MODULE_1__.default
 }, //Auth
 {

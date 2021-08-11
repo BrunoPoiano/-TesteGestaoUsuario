@@ -5,7 +5,7 @@ import {
 } from "vue-router";
 //Navegação
 import Tarefas from "../Pages/Tarefas/Tarefas.vue";
-import UserCrud from "../Pages/User/UserCrud.vue";
+import Perfil from "../Pages/User/UserCrud.vue";
 
 //Auth
 import Login from "../Auth/Login.vue";
@@ -18,9 +18,9 @@ const routes = [
         component: Tarefas,
     },
     {
-        path: "/UserCrud",
-        name: "UserCrud",
-        component: UserCrud,
+        path: "/Perfil",
+        name: "Perfil",
+        component: Perfil,
     },
 
     //Auth
