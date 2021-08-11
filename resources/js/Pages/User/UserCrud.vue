@@ -52,7 +52,7 @@ export default {
             if (userStatus.value == false) {
                 mensagem.value = "Pagina Disponivel para usuarios Logados";
             }
-            axios.get("user").then((resp) => {
+            axios.get("api/user").then((resp) => {
                 user.value = resp.data;
             });
         });

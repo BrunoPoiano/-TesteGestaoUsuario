@@ -18662,7 +18662,7 @@ __webpack_require__.r(__webpack_exports__);
         mensagem.value = "Pagina Disponivel para usuarios Logados";
       }
 
-      axios.get("user").then(function (resp) {
+      axios.get("api/user").then(function (resp) {
         user.value = resp.data;
       });
     });

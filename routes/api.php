@@ -20,18 +20,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+///////TAREFAS///////
 Route::resource('tarefas', TarefaController::class);
 Route::get('tarefasFinalizadas', [TarefaController::class, 'tarefasFinalizadas'])->name('tarefasFinalizadas');
 Route::get('userTarefas', [TarefaController::class, 'userTarefas'])->name('userTarefas');
 Route::get('prioridades', [TarefaController::class, 'prioridades'])->name('prioridades');
 
+
+///////USUARIO///////
+Route::get('/user', [AuthController::class, 'user'])->name('user');
 //Autenticar usuario
 Route::post('createSignin', [AuthController::class, 'createSignin'])->name('createSignin');
 //Criar usuario
 Route::post('customSignup', [AuthController::class, 'customSignup'])->name('customSignup');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::put('updateName', [AuthController::class, 'updateName'])->name('updateName');
 Route::put('updateEmail', [AuthController::class, 'updateEmail'])->name('updateEmail');
 Route::put('updatePassword', [AuthController::class, 'updatePassword'])->name('updatePassword');

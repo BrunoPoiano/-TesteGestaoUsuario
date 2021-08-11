@@ -53,10 +53,6 @@ class AuthController extends Controller
         return response(['message' => 'Usuario não existe'], 404);
     }
 
-    public function signup()
-    {
-        return view('auth.welcome');
-    }
 
     public function customSignup(UserRequest $request)
     {
@@ -73,11 +69,6 @@ class AuthController extends Controller
         return response([
             'message' => 'Usuario Criado com Sucesso',
         ]);
-    }
-
-    public function dashboardView()
-    {
-        return view('auth.welcome');
     }
 
     public function logout()
@@ -150,7 +141,7 @@ class AuthController extends Controller
         if ($request) {
             $request->validate([
                 'senhaAntiga' => 'required',
-                'password' => 'required',
+                'senhaAntiga' => 'required',
             ]);
             $updUserPassword = User::find(Auth::id());
             if (Hash::check($request->senhaAntiga, $updUserPassword->password)) {
