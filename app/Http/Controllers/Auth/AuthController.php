@@ -95,16 +95,15 @@ class AuthController extends Controller
 
                 //Apagando Tarefas do  Usuario
                 $userTarefas = Tarefa::where('user_id', Auth::id())->get();
-
                 for ($i = 0; $i < count($userTarefas); $i++) {
                     $userTarefas[$i]->delete();
                 }
-
+                //Enviando email de confirmação de Atualização de Nome
+                Mail::to($user->email)->send(new DeletarPerfil());
                 $cookie = cookie::forget('jwt');
                 Session::flush();
                 Auth::logout();
-                //Enviando email de confirmação de Atualização de Nome
-                Mail::to($user->email)->send(new DeletarPerfil());
+
                 $user->delete();
                 return response([
                     'message' => 'User Deletado',
@@ -151,11 +150,11 @@ class AuthController extends Controller
 
             $updUserEmail = User::find(Auth::id());
             $updUserEmail->email = $request->email;
-            
+
             if ($updUserEmail->update()) {
                 //Enviando email de confirmação de Atualização de email
                 Mail::to($updUserEmail->email)->send(new UpdatePerfil());
-                
+
                 return response([
                     'message' => 'Email Atualizado com sucesso',
                 ]);
