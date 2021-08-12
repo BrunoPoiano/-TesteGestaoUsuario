@@ -4,4 +4,4 @@
 * php artisan migrate --seed
 * Na pagina Login Email: usuario@email.com Senha: usuario123
 
-<img src="public\img\demo\Teste-Gestao-Usuarios.gif" alt="My Project GIF" width="auto" height="600">
+<img src="public\img\demo\Teste-Gestao-Usuarios.gif" alt="My Project GIF" width="auto" height="500">
